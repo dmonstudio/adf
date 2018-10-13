@@ -18,6 +18,10 @@
     text-align: right;
 }
 
+.text-center {
+    text-align: center;
+}
+
 @mixin margin-helper($level, $spacing) {
     .m-#{$level} {margin: #{$spacing}!important;}
     .mx-#{$level} {margin-left: #{$spacing}!important;margin-right: #{$spacing}!important;}

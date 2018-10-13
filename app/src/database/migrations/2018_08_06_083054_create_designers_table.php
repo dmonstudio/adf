@@ -20,10 +20,10 @@ class CreateDesignersTable extends Migration
             $table->json('titles')->default('{}');
             $table->json('achievements')->default('{}');
             $table->text('body')->default('');
-            $table->string('en_name')->default('');
-            $table->json('en_titles')->default('{}');
-            $table->json('en_achievements')->default('{}');
-            $table->text('en_body')->default('');
+            $table->string('name_en')->default('');
+            $table->json('titles_en')->default('{}');
+            $table->json('achievements_en')->default('{}');
+            $table->text('body_en')->default('');
             $table->boolean('visible')->default(false)->index();
             $table->timestamps();
         });

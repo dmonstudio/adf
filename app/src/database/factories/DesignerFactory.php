@@ -39,17 +39,28 @@ const TITLES = [
     '武汉市文化创意产业协会副理事长'
 ];
 
+const ACHIEVEMENTS = [
+    '成就一',
+    '成就二',
+    '成就三',
+    '成就四',
+    '成就五',
+];
+
 $factory->define(App\Models\Designer::class, function (Faker $faker) {
+    $titleCount = $faker->numberBetween(2, 5);
+    $achievementCount = $faker->numberBetween(2, 5);
+
     return [
         'name' => $faker->name,
+        'name_en' => $faker->words(2, true),
         'slug' => $faker->slug,
-        'titles' => [
-            $faker->randomElement(TITLES), $faker->randomElement(TITLES), $faker->randomElement(TITLES)
-        ],
-        'achievements' => [
-            $faker->sentence, $faker->sentence, $faker->sentence, $faker->sentence
-        ],
+        'titles' => $faker->randomElements(TITLES, $titleCount),
+        'titles_en' => $faker->sentences($titleCount),
+        'achievements' => $faker->randomElements(ACHIEVEMENTS, $titleCount),
+        'achievements_en' => $faker->sentences($titleCount),
         'body' => $faker->text,
+        'body_en' => $faker->text,
         'visible' => $faker->boolean
     ];
 });

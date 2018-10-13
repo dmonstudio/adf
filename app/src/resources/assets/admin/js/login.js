@@ -11,19 +11,17 @@ window.Vue = require('vue');
 import Element from 'element-ui';
 Vue.use (Element);
 
-import Toolbar from './components/Toolbar.vue'
-Vue.component('toolbar', Toolbar)
-
-import router from './router'
-
-import App from './components/App.vue'
-
-const app = new Vue({
-    el: '#app',
+const login = new Vue({
+    el: '#login',
     data: {
-        csrfToken: document.head.querySelector('meta[name="csrf-token"]').content
+        login: {
+            username: '',
+            password: ''
+        }
     },
-    template: '<app/>',
-    components: {App},
-    router
+    methods: {
+        handleLogin() {
+            this.$refs.form.$el.submit()
+        }
+    }
 });

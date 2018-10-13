@@ -3,8 +3,8 @@
         <el-aside width="280px">
             <Sidenav/>
         </el-aside>
-        <el-container>
-            <el-header>Header</el-header>
+        <el-container direction="vertical">
+            <app-header/>
             <el-main>
                 <router-view/>
             </el-main>
@@ -14,12 +14,14 @@
 </template>
 
 <script>
-    import Sidenav from './Sidenav.vue'
-    import AppFooter from './Footer.vue'
+    import Sidenav from './Layout/Sidenav.vue'
+    import AppFooter from './Layout/Footer.vue'
+    import AppHeader from './Layout/Header.vue'
 
     export default {
         components: {
             Sidenav,
+            AppHeader,
             AppFooter
         }
     }

@@ -88,10 +88,10 @@
         methods: {
             reset() {
                 const orig = this.designer
-                this.form.name = orig.en_name
-                this.form.titles = orig.en_titles
-                this.form.achievements = orig.en_achievements
-                this.form.body = orig.en_body
+                this.form.name = orig.name_en
+                this.form.titles = orig.titles_en
+                this.form.achievements = orig.achievements_en
+                this.form.body = orig.body_en
             },
             removeTitle(i) {
                 this.form.titles.length === 1 
@@ -111,10 +111,10 @@
             },
             submit() {
                 const form = {
-                    en_name: this.form.name,
-                    en_titles: this.form.titles,
-                    en_achievements: this.form.achievements,
-                    en_body: this.form.body
+                    name_en: this.form.name,
+                    titles_en: this.form.titles,
+                    achievements_en: this.form.achievements,
+                    body_en: this.form.body
                 }
                 this.onSubmit(form)
             }

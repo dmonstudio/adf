@@ -11,19 +11,19 @@ class Designer extends Model implements HasMedia
     use HasMediaTrait;
 
     protected $fillable = [
-        'name', 'en_name',
+        'name', 'name_en',
         'slug',
-        'titles', 'en_titles',
-        'achievements', 'en_achievements',
-        'body', 'en_body',
+        'titles', 'titles_en',
+        'achievements', 'achievements_en',
+        'body', 'body_en',
         'visible',
     ];
 
     protected $casts = [
         'titles' => 'array',
+        'titles_en' => 'array',
         'achievements' => 'array',
-        'en_titles' => 'array',
-        'en_achievements' => 'array',
+        'achievements_en' => 'array',
         'images' => 'array',
     ];
 

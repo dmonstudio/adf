@@ -23,13 +23,17 @@
                 <img :src="scope.row.main_image" class="image" style="width: 50px;">
             </template>
         </el-table-column>
-        <el-table-column label="最近修改">
+        <el-table-column
+            label="最近修改"
+            align="center"
+        >
             <template slot-scope="scope">
                 <i class="el-icon-time"></i>
                 <span style="margin-left: 10px">{{ scope.row.updated_at }}</span>
             </template>
         </el-table-column>
         <el-table-column
+            align="center"
             label="操作">
             <template slot-scope="scope">
                 <el-button
