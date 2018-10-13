@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  app:
+    image: registry.gitlab.com/sudomabider/adf/app:0.1
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: 100k
+        max-file: '1'
+    restart: 'unless-stopped'
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      frontend:
+        aliases:
+          - adf.demo
+      default:
+  
+  redis:
+    image: redis:4-alpine
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: 100k
+        max-file: '1'
+    restart: 'unless-stopped'
+    volumes:
+      - redis-data:/data
+
+  postgres:
+    image: postgres:10-alpine
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: 100k
+        max-file: '1'
+    restart: 'unless-stopped'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+networks:
+  frontend:
+    external: true
+
+volumes:
+  redis-data:
+  postgres-data:

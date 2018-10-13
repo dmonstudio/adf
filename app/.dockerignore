@@ -1,0 +1,12 @@
+vendor
+node_modules
+tests
+devel
+
+storage/app/*
+public/*
+!public/index.php
+!public/favicon.ico
+!public/robots.txt
+.gitignore
+.git

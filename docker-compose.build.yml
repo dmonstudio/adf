@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: app
+    image: registry.gitlab.com/sudomabider/adf/app:0.1
