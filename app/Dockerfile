@@ -20,7 +20,7 @@ WORKDIR /build
 COPY src/composer.json /build/
 COPY src/composer.lock /build/
 
-RUN composer install --no-dev -o --ignore-platform-reqs
+RUN composer install --no-dev -o --ignore-platform-reqs --no-scripts
 
 FROM sudomabider/php7-nginx
 
