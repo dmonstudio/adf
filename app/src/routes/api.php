@@ -13,9 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::namespace('Api')->group(function () {
-    api_resource('designer', 'DesignerController');
-    Route::post('designers/{designer}/media', 'DesignerController@addMedia');
+api_resource('designer', 'DesignerController');
+Route::post('designers/{designer}/media', 'DesignerController@addMedia');
 
-    Route::delete('/media/{media}', 'MediaController@destroy');
-});
+api_resource('showcase', 'ShowcaseController');
+
+Route::delete('/media/{media}', 'MediaController@destroy');
+
+Route::get('/stats/resources', 'StatsController@resources');

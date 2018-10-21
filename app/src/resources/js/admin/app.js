@@ -16,6 +16,20 @@ Vue.component('toolbar', Toolbar)
 
 import router from './router'
 
+Vue.mixin({
+    methods: {
+        goto(uri) {
+            this.$router.push(uri)
+        },
+        showError(msg = '发生错误，请重试') {
+            this.$message({
+                type: 'error',
+                message: msg
+            })
+        }
+    }
+})
+
 import App from './components/App.vue'
 
 const app = new Vue({

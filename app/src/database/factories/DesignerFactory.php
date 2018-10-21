@@ -45,6 +45,8 @@ const ACHIEVEMENTS = [
     '成就三',
     '成就四',
     '成就五',
+    '成就六',
+    '成就七',
 ];
 
 $factory->define(App\Models\Designer::class, function (Faker $faker) {

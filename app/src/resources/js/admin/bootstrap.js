@@ -11,6 +11,17 @@ window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // window.axios.defaults.baseURL = '/api/';
 
+const translations = require('./config/translations.json')
+window.t = function (key, fallback) {
+    const translation = _.get(translations, key, fallback)
+
+    if (typeof translation === 'object') {
+        return translation._self || '资源'
+    }
+
+    return translation
+}
+
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just

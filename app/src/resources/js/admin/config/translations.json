@@ -1,0 +1,12 @@
+{
+    "designer": {
+        "_self": "设计师",
+        "plural": "designers",
+        "name": "姓名"
+    },
+    "showcase": {
+        "_self": "项目",
+        "plural": "showcases",
+        "name": "名称"
+    }
+}

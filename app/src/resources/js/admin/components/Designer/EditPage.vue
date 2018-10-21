@@ -3,15 +3,21 @@
         <toolbar>
             <h3 class="d-inline-block my-1">编辑设计师</h3>
             <template slot="right">
-                <designer-toggle
-                    :id="id"
-                    :visible="designer.visible"
-                    :on-toggle="sync"
-                    plain
+                <resource-toggle
+                    :resource="designer"
+                    resource-name="designer"
                     size="small"
-                    v-if="designer.created_at"
+                    plain
+                    :on-toggle="sync"
+                    v-if="typeof designer.visible !== 'undefined'"
                 />
-                <designer-delete :designer="designer" size="small" plain/>
+                <resource-delete
+                    :resource="designer"
+                    resource-name="designer"
+                    size="small"
+                    plain
+                    :handle-action-complete="handleDeleted"
+                />
             </template>
         </toolbar>
         <el-row class="mb-4">
@@ -63,7 +69,8 @@
     import DesignerForm from './Form.vue'
     import DesignerFormEn from './FormEn.vue'
     import Upload from './Upload.vue'
-    import DesignerDelete from './Delete.vue'
+    import ResourceDelete from '../Resource/Delete.vue'
+    import ResourceToggle from '../Resource/Toggle.vue'
     import DesignerToggle from './ToggleStatus.vue'
 
     export default {
@@ -110,14 +117,17 @@
             },
             sync(designer) {
                 this.designer = designer
+            },
+            handleDeleted() {
+                this.goto('/designers')
             }
         },
         components: { 
             DesignerForm,
             DesignerFormEn,
             Upload,
-            DesignerDelete,
-            DesignerToggle
+            ResourceDelete,
+            ResourceToggle
         }
     }
 </script>

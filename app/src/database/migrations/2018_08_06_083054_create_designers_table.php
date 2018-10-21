@@ -16,7 +16,7 @@ class CreateDesignersTable extends Migration
         Schema::create('designers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug')->index();
+            $table->string('slug')->unique();
             $table->json('titles')->default('{}');
             $table->json('achievements')->default('{}');
             $table->text('body')->default('');

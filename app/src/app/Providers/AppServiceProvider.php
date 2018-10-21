@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Designer;
+use App\Models\Showcase;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,10 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Designer::saving(function (Designer $designer) {
-            if (is_null($designer->slug)) {
-                $designer->slug = uniqid();
-            }
+        Designer::creating(function (Designer $designer) {
+            $designer->slug = uniqid();
+        });
+
+        Showcase::creating(function (Showcase $showcase) {
+            $showcase->slug = uniqid();
         });
     }
 

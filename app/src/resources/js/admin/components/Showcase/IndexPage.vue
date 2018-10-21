@@ -1,14 +1,15 @@
 <template>
-    <div class="designers">
+    <div class="showcases">
         <toolbar>
             <resource-create
-                resource-name="designer"
+                resource-name="showcase"
+                resource-name-plural="showcases"
                 button-type="primary"
                 :handle-action-complete="handleCreated"
             />
         </toolbar>
-        <designer-table
-            :designers="designers"
+        <showcase-table
+            :showcases="showcases"
             :loading="loading"
             :refresh="fetch"
         />
@@ -16,13 +17,13 @@
 </template>
 
 <script>
-    import DesignerTable from './Table'
+    import ShowcaseTable from './Table'
     import ResourceCreate from '../Resource/Create.vue'
 
     export default {
         data() {
             return {
-                designers: [],
+                showcases: [],
                 loading: false
             }
         },
@@ -32,22 +33,22 @@
         methods: {
             fetch() {
                 this.loading = true
-                axios.get('/api/designers')
+                axios.get('/api/showcases')
                     .then(res => {
-                        this.designers = res.data
+                        this.showcases = res.data
                         this.loading = false
                     })
                     .catch(err => {
                         this.loading = false
                     })
             },
-            handleCreated(designer) {
-                return this.goto(`/designers/${designer.id}/edit`)
+            handleCreated(showcase) {
+                return this.goto(`/showcases/${showcase.id}/edit`)
             }
         },
 
         components: {
-            DesignerTable,
+            ShowcaseTable,
             ResourceCreate
         }
     }

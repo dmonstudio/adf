@@ -17,7 +17,7 @@
             <i class="el-icon-menu"></i>
             <span>设计师</span>
         </el-menu-item>
-        <el-menu-item index="/projects">
+        <el-menu-item index="/showcases">
             <i class="el-icon-document"></i>
             <span>项目</span>
         </el-menu-item>

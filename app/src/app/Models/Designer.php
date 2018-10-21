@@ -8,7 +8,7 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
 class Designer extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use HasMediaTrait, HasVisibilityTrait;
 
     protected $fillable = [
         'name', 'name_en',
@@ -24,7 +24,6 @@ class Designer extends Model implements HasMedia
         'titles_en' => 'array',
         'achievements' => 'array',
         'achievements_en' => 'array',
-        'images' => 'array',
     ];
 
     protected $appends = [

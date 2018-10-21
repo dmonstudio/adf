@@ -1,21 +1,12 @@
 <template>
     <el-table
-        :data="designers"
+        :data="showcases"
         :loading="loading"
         class="w-100"
         :row-class-name="tableRowClassName"
     >
-        <el-table-column type="expand">
-            <template slot-scope="props">
-                <row-details 
-                    :titles="props.row.titles"
-                    :achievements="props.row.achievements"
-                    :images="props.row.images"
-                />
-            </template>
-        </el-table-column>
         <el-table-column
-            label="姓名"
+            label="项目名称"
             prop="name">
         </el-table-column>
         <el-table-column label="图片">
@@ -46,7 +37,7 @@
                     type="info"
                     plain
                     @click="handleDelete(scope.$index, scope.row)">预览</el-button>
-                <designer-toggle
+                <showcase-toggle
                     :id="scope.row.id"
                     :visible="scope.row.visible"
                     :show-icon="false"
@@ -60,12 +51,11 @@
 </template>
 
 <script>
-    import RowDetails from './TableRowDetails'
-    import DesignerToggle from './ToggleStatus.vue'
+    import ShowcaseToggle from '../Designer/ToggleStatus.vue'
 
     export default {
         props: {
-            designers: {
+            showcases: {
                 type: Array,
                 required: true,
                 default: () => []
@@ -90,7 +80,7 @@
                 return ''
             },
             gotoEdit(id) {
-                this.$router.push(`/designers/${id}/edit`)
+                this.$router.push(`/showcases/${id}/edit`)
             },
             sync() {
                 this.refresh();
@@ -98,19 +88,7 @@
         },
 
         components: {
-            RowDetails,
-            DesignerToggle
+            ShowcaseToggle
         }
     }
 </script>
-
-<style lang="scss">
-    .el-table .offline-row {
-        opacity: 0.7;
-        background: #eee;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-</style>

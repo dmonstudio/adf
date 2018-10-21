@@ -2,10 +2,24 @@
 
 use Faker\Generator as Faker;
 
+const NAMES = [
+    '大项目一号',
+    '大项目二号',
+    '大项目三号',
+    '大项目四号',
+    '大项目五号',
+    '大项目六号',
+    '大项目七号',
+    '大项目八号',
+];
+
 $factory->define(App\Models\Showcase::class, function (Faker $faker) {
     return [
-        'name' => $faker->sentence,
+        'name' => $faker->randomElement(NAMES),
+        'name_en' => $faker->words(3, true),
         'slug' => $faker->slug,
-        'body' => $faker->text
+        'body' => $faker->text,
+        'body_en' => $faker->text,
+        'visible' => $faker->boolean
     ];
 });

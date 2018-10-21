@@ -16,8 +16,11 @@ class CreateShowcasesTable extends Migration
         Schema::create('showcases', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug')->index();
+            $table->string('name_en');
+            $table->string('slug')->unique();
             $table->text('body');
+            $table->text('body_en');
+            $table->boolean('visible')->default(false)->index();
             $table->timestamps();
         });
     }
