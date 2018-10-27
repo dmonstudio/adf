@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -24,11 +23,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Relation::morphMap([
-            'designers' => 'App\Model\Designer',
-            'projects' => 'App\Models\Project',
-        ]);
-
         parent::boot();
     }
 

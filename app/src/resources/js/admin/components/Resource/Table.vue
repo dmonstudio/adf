@@ -1,7 +1,7 @@
 <template>
     <el-table
         :data="data"
-        :loading="loading"
+        v-loading="loading"
         class="w-100"
         :row-class-name="tableRowClassName"
     >
@@ -72,7 +72,8 @@
                 required: true
             },
             showImages: {
-                type: Array
+                type: Boolean,
+                default: () => true
             }
         },
 

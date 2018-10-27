@@ -11,26 +11,17 @@ services:
       - app-views:/app/storage/views
       - app-logs:/app/storage/logs
       - ./app/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./app/devel/setup.sh:/setup.sh
     ports:
       - 3000:80
   
   postgres:
     image: postgres:11-alpine
-    logging:
-      driver: 'json-file'
-      options:
-        max-size: 100k
-        max-file: '1'
     volumes:
       - pg-data:/var/lib/postgresql/data
   
   redis:
     image: redis:4-alpine
-    logging:
-      driver: 'json-file'
-      options:
-        max-size: 100k
-        max-file: '1'
     volumes:
       - redis-data:/data
 

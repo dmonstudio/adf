@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Models\Designer;
 use App\Models\Showcase;
 use App\Models\Story;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,12 @@ class AppServiceProvider extends ServiceProvider
         Story::creating(function (Story $story) {
             $story->slug = uniqid();
         });
+
+        Relation::morphMap([
+            'designers' => 'App\Models\Designer',
+            'projects' => 'App\Models\Project',
+            'stories' => 'App\Models\Story',
+        ]);
     }
 
     /**

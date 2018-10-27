@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Designer;
 use Illuminate\Database\Seeder;
+use Spatie\MediaLibrary\Models\Media;
 
 class DesignerSeeder extends Seeder
 {
@@ -11,8 +13,21 @@ class DesignerSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Designer::query()->truncate();
+        Designer::query()->truncate();
 
-        factory(App\Models\Designer::class, 10)->create();
+        $designers = factory(Designer::class, 10)->create();
+
+        Media::where('model_type', 'designers')->get()->each(function ($designer) {
+            $designer->delete();
+        });
+
+        $images = glob(resource_path('images/designers/*.jpg'));
+        
+        foreach($designers as $designer) {
+            $image = array_random($images);
+            $designer->addMedia($image)
+                ->preservingOriginal()
+                ->toMediaCollection();
+        }
     }
 }
