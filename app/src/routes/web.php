@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 
+Route::get('/ping', function() {
+    return 'pong';
+});
+
 Route::auth();
