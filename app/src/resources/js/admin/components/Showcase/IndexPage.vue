@@ -3,21 +3,21 @@
         <toolbar>
             <resource-create
                 resource-name="showcase"
-                resource-name-plural="showcases"
                 button-type="primary"
                 :handle-action-complete="handleCreated"
             />
         </toolbar>
-        <showcase-table
-            :showcases="showcases"
+        <resource-table
+            :data="showcases"
             :loading="loading"
             :refresh="fetch"
+            resource-name="showcase"
         />
     </div>
 </template>
 
 <script>
-    import ShowcaseTable from './Table'
+    import ResourceTable from '../Resource/Table.vue'
     import ResourceCreate from '../Resource/Create.vue'
 
     export default {
@@ -48,7 +48,7 @@
         },
 
         components: {
-            ShowcaseTable,
+            ResourceTable,
             ResourceCreate
         }
     }

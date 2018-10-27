@@ -2,16 +2,16 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Models\Showcase::class, function (Faker $faker) {
+$factory->define(App\Models\Story::class, function (Faker $faker) {
     static $names = [
-        '大项目一号',
-        '大项目二号',
-        '大项目三号',
-        '大项目四号',
-        '大项目五号',
-        '大项目六号',
-        '大项目七号',
-        '大项目八号',
+        '好故事一号',
+        '好故事二号',
+        '好故事三号',
+        '好故事四号',
+        '好故事五号',
+        '好故事六号',
+        '好故事七号',
+        '好故事八号',
     ];
 
     return [

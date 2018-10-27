@@ -6,12 +6,18 @@ import Home from './components/Home/HomePage.vue'
 import DesignerIndex from './components/Designer/IndexPage'
 import DesignerEdit from './components/Designer/EditPage'
 import ShowcaseIndex from './components/Showcase/IndexPage'
+import ShowcaseEdit from './components/Showcase/EditPage'
+import StoryIndex from './components/Story/IndexPage'
+import StoryEdit from './components/Story/EditPage'
 
 const routes = [
     { path: '/', component: Home },
     { path: '/designers', component: DesignerIndex },
     { path: '/designers/:id/edit', component: DesignerEdit },
-    { path: '/showcases', component: ShowcaseIndex }
+    { path: '/showcases', component: ShowcaseIndex },
+    { path: '/showcases/:id/edit', component: ShowcaseEdit },
+    { path: '/stories', component: StoryIndex },
+    { path: '/stories/:id/edit', component: StoryEdit }
 ]
 
 const router = new Router({

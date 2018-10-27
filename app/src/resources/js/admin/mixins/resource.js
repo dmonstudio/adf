@@ -35,10 +35,7 @@ export default {
     },
     methods: {
         actionSuccess(action) {
-            this.$message({
-                type: 'success',
-                message: (action || this.actionTitle) + '成功'
-            })
+            this.showSuccess(action)
         }
     }
 }

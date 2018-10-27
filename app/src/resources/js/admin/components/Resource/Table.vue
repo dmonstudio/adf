@@ -1,24 +1,15 @@
 <template>
     <el-table
-        :data="designers"
+        :data="data"
         :loading="loading"
         class="w-100"
         :row-class-name="tableRowClassName"
     >
-        <el-table-column type="expand">
-            <template slot-scope="props">
-                <row-details 
-                    :titles="props.row.titles"
-                    :achievements="props.row.achievements"
-                    :images="props.row.images"
-                />
-            </template>
-        </el-table-column>
         <el-table-column
-            label="姓名"
-            prop="name">
+            :label="nameTitle"
+            :prop="nameProp">
         </el-table-column>
-        <el-table-column label="图片">
+        <el-table-column label="图片" v-if="showImages">
             <template slot-scope="scope">
                 <img :src="scope.row.main_image" class="image" style="width: 50px;">
             </template>
@@ -45,13 +36,13 @@
                     size="mini"
                     type="info"
                     plain
-                    @click="handleDelete(scope.$index, scope.row)">预览</el-button>
-                <designer-toggle
-                    :id="scope.row.id"
-                    :visible="scope.row.visible"
-                    :show-icon="false"
-                    size="mini"
-                    plain
+                    @click="handlePreview(scope.$index, scope.row)">预览</el-button>
+                <resource-toggle
+                    :resource="scope.row"
+                    :resource-name="resourceName"
+                    button-size="mini"
+                    button-plain
+                    :button-icon-show="false"
                     :on-toggle="sync"
                 />
             </template>
@@ -60,12 +51,13 @@
 </template>
 
 <script>
-    import RowDetails from './TableRowDetails'
-    import DesignerToggle from './ToggleStatus.vue'
+    import ResourceMixin from '../../mixins/resource.js'
+    import ResourceToggle from './Toggle.vue'
 
     export default {
+        mixins: [ResourceMixin],
         props: {
-            designers: {
+            data: {
                 type: Array,
                 required: true,
                 default: () => []
@@ -78,6 +70,9 @@
             refresh: {
                 type: Function,
                 required: true
+            },
+            showImages: {
+                type: Array
             }
         },
 
@@ -90,7 +85,7 @@
                 return ''
             },
             gotoEdit(id) {
-                this.$router.push(`/designers/${id}/edit`)
+                this.$router.push(`/${this.resourceNamePlural}/${id}/edit`)
             },
             sync() {
                 this.refresh();
@@ -98,19 +93,7 @@
         },
 
         components: {
-            RowDetails,
-            DesignerToggle
+            ResourceToggle
         }
     }
 </script>
-
-<style lang="scss">
-    .el-table .offline-row {
-        opacity: 0.7;
-        background: #eee;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-</style>

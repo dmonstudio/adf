@@ -13,45 +13,45 @@ class ShowcaseController extends Controller
         return Showcase::query()->orderByDesc('visible')->get();
     }
 
-    public function getOne(Showcase $designer)
+    public function getOne(Showcase $showcase)
     {
-        return $designer;
+        return $showcase;
     }
 
     public function create(Request $request)
     {
-        $designer = new Showcase;
-        $designer->fill($request->only('name'))->save();
+        $showcase = new Showcase;
+        $showcase->fill($request->only('name'))->save();
 
-        return $designer;
+        return $showcase;
     }
 
-    public function preview(Showcase $designer)
+    public function preview(Showcase $showcase)
     {
         return 1;
     }
 
-    public function update(Request $request, Showcase $designer)
+    public function update(Request $request, Showcase $showcase)
     {
-        $designer->fill($request->all())->save();
+        $showcase->fill($request->all())->save();
 
-        return $designer;
+        return $showcase;
     }
 
-    public function delete(Showcase $designer)
+    public function delete(Showcase $showcase)
     {
-        $id = $designer->id;
-        $designer->delete();
+        $id = $showcase->id;
+        $showcase->delete();
 
         return $id;
     }
 
-    public function addMedia(Request $request, Showcase $designer)
+    public function addMedia(Request $request, Showcase $showcase)
     {
         $file = $request->file('media');
         $path = $file->getPathname();
 
-        $media = $designer->addMedia($path)
+        $media = $showcase->addMedia($path)
                 ->usingFileName($file->getFilename())
                 ->toMediaCollection();
         

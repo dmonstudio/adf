@@ -1,19 +1,19 @@
 <template>
-    <div id="designer_edit">
+    <div id="story-edit">
         <toolbar>
-            <h3 class="d-inline-block my-1">编辑设计师</h3>
+            <h3 class="d-inline-block my-1">编辑动态</h3>
             <template slot="right">
                 <resource-toggle
-                    :resource="designer"
-                    resource-name="designer"
+                    :resource="story"
+                    resource-name="story"
                     size="small"
                     plain
                     :on-toggle="sync"
-                    v-if="typeof designer.visible !== 'undefined'"
+                    v-if="typeof story.visible !== 'undefined'"
                 />
                 <resource-delete
-                    :resource="designer"
-                    resource-name="designer"
+                    :resource="story"
+                    resource-name="story"
                     size="small"
                     plain
                     :handle-action-complete="handleDeleted"
@@ -27,9 +27,9 @@
                         <span>图片</span>
                     </div>
                     <resource-upload
-                        :resource="designer"
-                        resource-name="designer"
-                        v-if="designer.media"
+                        :resource="story"
+                        resource-name="story"
+                        v-if="story.media"
                     />
                 </el-card>
             </el-col>
@@ -40,8 +40,9 @@
                     <div slot="header" class="clearfix">
                         <span>基本信息</span>
                     </div>
-                    <designer-form
-                        :designer="designer"
+                    <story-form
+                        :resource="story"
+                        resource-name="story"
                         :fetching="fetching"
                         :updating="updating"
                         :onSubmit="update"
@@ -53,8 +54,9 @@
                     <div slot="header" class="clearfix">
                         <span>Basic Info</span>
                     </div>
-                    <designer-form-en
-                        :designer="designer"
+                    <story-form-en
+                        :resource="story"
+                        resource-name="story"
                         :fetching="fetching"
                         :updating="updating"
                         :onSubmit="update"
@@ -66,8 +68,8 @@
 </template>
 
 <script>
-    import DesignerForm from './Form.vue'
-    import DesignerFormEn from './FormEn.vue'
+    import StoryForm from './Form.vue'
+    import StoryFormEn from './FormEn.vue'
     import ResourceUpload from '../Resource/Upload.vue'
     import ResourceDelete from '../Resource/Delete.vue'
     import ResourceToggle from '../Resource/Toggle.vue'
@@ -75,7 +77,7 @@
     export default {
         data() {
             return {
-                designer: {},
+                story: {},
                 fetching: false,
                 updating: false
             }
@@ -91,39 +93,36 @@
         methods: {
             fetch() {
                 this.fetching = true
-                axios.get(`/api/designers/${this.id}`)
+                axios.get(`/api/stories/${this.id}`)
                     .then(res => {
-                        this.designer = res.data
+                        this.story = res.data
                         this.fetching = false
                     })
             },
             update(props) {
                 this.updating = true
-                axios.patch(`/api/designers/${this.id}`, props)
+                axios.patch(`/api/stories/${this.id}`, props)
                     .then(res => {
-                        this.designer = res.data
+                        this.story = res.data
                         this.updating = false
                     })
                     .catch(err => {
                         this.updating = false
                     })
                     .then(() => {
-                        this.$message({
-                            type: 'success',
-                            message: '编辑成功'
-                        });
+                        this.showSuccess('编辑')
                     })
             },
-            sync(designer) {
-                this.designer = designer
+            sync(story) {
+                this.story = story
             },
             handleDeleted() {
-                this.goto('/designers')
+                this.goto('/storys')
             }
         },
         components: { 
-            DesignerForm,
-            DesignerFormEn,
+            StoryForm,
+            StoryFormEn,
             ResourceUpload,
             ResourceDelete,
             ResourceToggle

@@ -1,17 +1,17 @@
 <template>
-    <div class="designers">
+    <div class="stories">
         <toolbar>
             <resource-create
-                resource-name="designer"
+                resource-name="story"
                 button-type="primary"
                 :handle-action-complete="handleCreated"
             />
         </toolbar>
         <resource-table
-            :data="designers"
+            :data="stories"
             :loading="loading"
             :refresh="fetch"
-            resource-name="designer"
+            resource-name="story"
         />
     </div>
 </template>
@@ -23,7 +23,7 @@
     export default {
         data() {
             return {
-                designers: [],
+                stories: [],
                 loading: false
             }
         },
@@ -33,17 +33,17 @@
         methods: {
             fetch() {
                 this.loading = true
-                axios.get('/api/designers')
+                axios.get('/api/stories')
                     .then(res => {
-                        this.designers = res.data
+                        this.stories = res.data
                         this.loading = false
                     })
                     .catch(err => {
                         this.loading = false
                     })
             },
-            handleCreated(designer) {
-                return this.goto(`/designers/${designer.id}/edit`)
+            handleCreated(story) {
+                return this.goto(`/stories/${story.id}/edit`)
             }
         },
 

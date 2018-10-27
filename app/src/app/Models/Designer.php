@@ -8,7 +8,7 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
 class Designer extends Model implements HasMedia
 {
-    use HasMediaTrait, HasVisibilityTrait;
+    use HasMediaTrait, HasVisibilityTrait, HasMainImageTrait;
 
     protected $fillable = [
         'name', 'name_en',
@@ -52,11 +52,6 @@ class Designer extends Model implements HasMedia
     public function getAchievementsCountAttribute()
     {
         return count($this->achievements);
-    }
-
-    public function getMainImageAttribute()
-    {
-        return $this->getFirstMediaUrl();
     }
 
     public function setTitlesAttribute(array $titles)

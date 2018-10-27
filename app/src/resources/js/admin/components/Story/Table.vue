@@ -1,12 +1,12 @@
 <template>
     <el-table
-        :data="showcases"
+        :data="stories"
         :loading="loading"
         class="w-100"
         :row-class-name="tableRowClassName"
     >
         <el-table-column
-            label="项目名称"
+            :label="resourceTitle + nameTitle"
             prop="name">
         </el-table-column>
         <el-table-column label="图片">
@@ -51,11 +51,11 @@
 </template>
 
 <script>
-    import ShowcaseToggle from '../Resource/Toggle.vue'
+    import ResourceToggle from '../Resource/Toggle.vue'
 
     export default {
         props: {
-            showcases: {
+            stories: {
                 type: Array,
                 required: true,
                 default: () => []
@@ -80,7 +80,7 @@
                 return ''
             },
             gotoEdit(id) {
-                this.$router.push(`/showcases/${id}/edit`)
+                this.$router.push(`/stories/${id}/edit`)
             },
             sync() {
                 this.refresh();
@@ -88,7 +88,7 @@
         },
 
         components: {
-            ShowcaseToggle
+            ResourceToggle
         }
     }
 </script>

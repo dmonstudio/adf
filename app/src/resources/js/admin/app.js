@@ -26,6 +26,12 @@ Vue.mixin({
                 type: 'error',
                 message: msg
             })
+        },
+        showSuccess(action = '操作') {
+            this.$message({
+                type: 'success',
+                message: action + '成功'
+            })
         }
     }
 })

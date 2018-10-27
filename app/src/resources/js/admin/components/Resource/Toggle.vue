@@ -1,7 +1,7 @@
 <template>
     <el-button
         :type="toggleButtonType"
-        :icon="toggleIcon"
+        :icon="buttonIconShow ? toggleIcon : null"
         :size="buttonSize"
         :plain="buttonPlain"
         @click="toggle"

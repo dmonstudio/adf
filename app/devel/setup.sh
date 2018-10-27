@@ -8,6 +8,9 @@ if [ ! -f .env ]; then
     php artisan key:generate
 fi
 
+echo "Refreshing composer autoload"
+composer dumpautoload
+
 echo "Ensuring file permissions"
 chown -R www-data:www-data storage/logs
 chown -R www-data:www-data storage/views

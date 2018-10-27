@@ -1,7 +1,7 @@
 <template>
     <el-button
         :type="buttonType"
-        :icon="buttonIcon"
+        :icon="buttonIconShow ? buttonIcon : null"
         :size="buttonSize"
         :plain="buttonPlain"
         @click="confirm"

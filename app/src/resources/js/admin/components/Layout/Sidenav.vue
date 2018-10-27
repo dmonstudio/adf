@@ -21,11 +21,11 @@
             <i class="el-icon-document"></i>
             <span>项目</span>
         </el-menu-item>
-        <el-menu-item index="/press">
+        <el-menu-item index="/stories">
             <i class="el-icon-setting"></i>
             <span>动态</span>
         </el-menu-item>
-        <el-menu-item index="/">
+        <el-menu-item index="/pages">
             <i class="el-icon-menu"></i>
             <span>页面</span>
         </el-menu-item>

@@ -8,5 +8,10 @@
         "_self": "项目",
         "plural": "showcases",
         "name": "名称"
+    },
+    "story": {
+        "_self": "动态",
+        "plural": "stories",
+        "name": "标题"
     }
 }
