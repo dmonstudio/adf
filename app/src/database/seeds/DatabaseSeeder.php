@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        App\Models\User::truncate();
         factory(App\Models\User::class)->create([
             'username' => 'admin',
             'password' => Hash::make('secret')

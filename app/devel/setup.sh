@@ -1,6 +1,20 @@
 #!/bin/sh
 
-docker-compose up -d
+set -e
 
-docker-compose exec app mkdir -p /app/public/media
-docker-compose exec app chown -R www-data:www-data /app/public/media
+if [ ! -f .env ]; then
+    echo "Generating env file"
+    cp .env.example .env
+    php artisan key:generate
+fi
+
+echo "Ensuring file permissions"
+chown -R www-data:www-data storage/logs
+chown -R www-data:www-data storage/views
+
+mkdir -p public/media
+chown -R www-data:www-data public/media
+
+php artisan migrate --seed
+
+exec "$@"
