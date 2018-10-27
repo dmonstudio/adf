@@ -1,9 +1,9 @@
 <?php
 
 Route::get('/', function () {
-    return admin_view('index');
+    return view('admin');
 });
 
 Route::get('{any}', function () {
-    return admin_view('index');
+    return view('admin');
 })->where('any', '.*');

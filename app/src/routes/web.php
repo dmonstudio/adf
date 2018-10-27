@@ -19,4 +19,6 @@ Route::get('/ping', function() {
     return 'pong';
 });
 
-Route::auth();
+$this->get('login', 'Auth\LoginController@showLoginForm');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout');

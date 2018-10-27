@@ -13,25 +13,21 @@
             <i class="el-icon-menu"></i>
             <span>控制台</span>
         </el-menu-item>
+        <el-menu-item index="/pages">
+            <i class="el-icon-tickets"></i>
+            <span>页面管理</span>
+        </el-menu-item>
         <el-menu-item index="/designers">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-service"></i>
             <span>设计师</span>
         </el-menu-item>
         <el-menu-item index="/showcases">
-            <i class="el-icon-document"></i>
-            <span>项目</span>
+            <i class="el-icon-star-off"></i>
+            <span>项目展示</span>
         </el-menu-item>
         <el-menu-item index="/stories">
-            <i class="el-icon-setting"></i>
-            <span>动态</span>
-        </el-menu-item>
-        <el-menu-item index="/pages">
-            <i class="el-icon-menu"></i>
-            <span>页面</span>
-        </el-menu-item>
-        <el-menu-item index="/stats">
-            <i class="el-icon-menu"></i>
-            <span>统计</span>
+            <i class="el-icon-news"></i>
+            <span>新闻动态</span>
         </el-menu-item>
     </el-menu>
 </template>

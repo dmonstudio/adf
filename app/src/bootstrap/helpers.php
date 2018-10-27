@@ -1,10 +1,5 @@
 <?php
 
-function admin_view($view = null, $data = [], $mergeData = [])
-{
-    return view('admin.' . $view, $data, $mergeData);
-}
-
 function api_resource($resource, $controller) {
     $plural = str_plural($resource);
 
