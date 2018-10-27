@@ -30,9 +30,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Relation::morphMap([
-            'designers' => 'App\Models\Designer',
-            'projects' => 'App\Models\Project',
-            'stories' => 'App\Models\Story',
+            'designer' => 'App\Models\Designer',
+            'project' => 'App\Models\Project',
+            'story' => 'App\Models\Story',
         ]);
     }
 

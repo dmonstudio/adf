@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Spatie\MediaLibrary\Models\Media;
 
 class ShowcaseSeeder extends Seeder
 {
@@ -13,6 +14,19 @@ class ShowcaseSeeder extends Seeder
     {
         App\Models\Showcase::query()->truncate();
 
-        factory(App\Models\Showcase::class, 10)->create();
+        $showcases = factory(App\Models\Showcase::class, 10)->create();
+
+        Media::where('model_type', 'showcase')->get()->each(function ($showcase) {
+            $showcase->delete();
+        });
+
+        $images = glob(resource_path('images/showcases/*.jpg'));
+        
+        foreach($showcases as $showcase) {
+            $image = array_random($images);
+            $showcase->addMedia($image)
+                ->preservingOriginal()
+                ->toMediaCollection();
+        }
     }
 }

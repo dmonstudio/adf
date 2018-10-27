@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Spatie\MediaLibrary\Models\Media;
 
 class StorySeeder extends Seeder
 {
@@ -13,6 +14,19 @@ class StorySeeder extends Seeder
     {
         App\Models\Story::query()->truncate();
 
-        factory(App\Models\Story::class, 10)->create();
+        $stories = factory(App\Models\Story::class, 10)->create();
+
+        Media::where('model_type', 'story')->get()->each(function ($story) {
+            $story->delete();
+        });
+
+        $images = glob(resource_path('images/stories/*.jpg'));
+        
+        foreach($stories as $story) {
+            $image = array_random($images);
+            $story->addMedia($image)
+                ->preservingOriginal()
+                ->toMediaCollection();
+        }
     }
 }

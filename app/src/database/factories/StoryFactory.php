@@ -19,7 +19,7 @@ $factory->define(App\Models\Story::class, function (Faker $faker) {
         'name_en' => $faker->words(3, true),
         'slug' => $faker->slug,
         'body' => $faker->text,
-        'body_en' => $faker->text,
+        'body_en' => $faker->realText(),
         'visible' => $faker->boolean
     ];
 });

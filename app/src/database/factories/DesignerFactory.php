@@ -134,7 +134,7 @@ $factory->define(App\Models\Designer::class, function (Faker $faker) {
         'achievements' => $faker->randomElements($achievements, $titleCount),
         'achievements_en' => $faker->sentences($titleCount),
         'body' => implode($faker->randomElements($storyLines, $storySize)),
-        'body_en' => $faker->text,
+        'body_en' => $faker->realText(),
         'visible' => $faker->boolean,
     ];
 });
