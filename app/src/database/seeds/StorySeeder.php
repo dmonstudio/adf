@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Story;
 use Illuminate\Database\Seeder;
 use Spatie\MediaLibrary\Models\Media;
 
@@ -12,9 +13,15 @@ class StorySeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Story::query()->truncate();
+        Story::query()->truncate();
 
-        $stories = factory(App\Models\Story::class, 10)->create();
+        $stories = factory(Story::class, 8)->create([
+            'visible' => true
+        ]);
+
+        factory(Story::class, 2)->create([
+            'visible' => false
+        ]);
 
         Media::where('model_type', 'story')->get()->each(function ($story) {
             $story->delete();

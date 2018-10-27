@@ -1,0 +1,140 @@
+#motto {
+    height: 100%;
+    position: relative;
+    text-align: center;
+
+    .motto-wrapper {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    
+        p.pingFang {
+            font-size: 38px;
+            letter-spacing: .28em;
+            padding-left: .28em;
+        }
+    
+        p.pingFang-thin {
+            font-size: 30px;
+            letter-spacing: .3em;
+            padding-left: .3em;
+        }
+    }
+}
+
+#office-photo {
+    max-width: 1380px;
+    min-width: 1140px;
+    padding: 0 40px;
+    margin-bottom: 100px;
+
+    .office-photo-wrapper {
+        display: inline-block;
+        width: 100%;
+        height: 350px;
+        background: no-repeat center center;
+        @include background-size(cover);
+    }
+
+    .pingFang-thin {
+        text-align: right;
+        margin: 0.5em 0;
+    }
+}
+
+#intro {
+    .intro-wrapper {
+        padding: 50px 200px;
+        color: #333;
+    
+        p {
+            font-size: 18px;
+            line-height: 3em;
+            letter-spacing: .2em;
+            padding-left: .2em;
+            margin-bottom: 50px;
+            text-align: justify;
+    
+            b { font-weight: 500; }
+        }
+    }
+}
+
+#team {
+    .team-wrapper {
+        width: 1140px;
+        margin: 0 auto;
+        padding: 70px 0;
+
+        .team-member {
+            width: 285px;
+            display: inline-block;
+            vertical-align: top;
+            padding-bottom: 50px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .team-member-photo {
+            width: 273px;
+            height: 273px * 5 / 4;
+            margin: 0 auto;
+            background: no-repeat center center;
+            background-size: 100%;
+            @include transition("background-size .5s cubic-bezier(0.215, 0.61, 0.355, 1)");
+
+            &:hover {
+                background-size: 110%
+            }
+        }
+
+        .team-member-name {
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 0 6px;
+            color: #333;
+        }
+
+        .team-member-title {
+            margin: 0;
+            padding: 0 6px;
+            letter-spacing: 0.1em;
+            color: #bbb;
+        }
+    }
+}
+
+#awards {
+    .awards-wrapper {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    .award-list {
+        margin-bottom: 50px;
+
+        p {
+            font-size: 18px;
+            line-height: 3em;
+            letter-spacing: .2em;
+            margin: 0;
+
+            &.award-list-left {
+                width: 150px;
+                float: left;
+            }
+
+            &.award-list-right {
+                margin-left: 150px;
+            }
+        }
+    }
+
+    .global-awards-img img {
+        margin-left: 120px;
+        width: 700px;
+    }
+}

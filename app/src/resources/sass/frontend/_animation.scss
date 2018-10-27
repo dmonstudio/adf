@@ -1,0 +1,150 @@
+header.close {
+    #line-t, #line-m, #line-b {
+        fill: #222;
+    }
+}
+
+header {
+    &.close {
+        #line-t {
+            @include animation("line_t_close .8s cubic-bezier(1, 0, 0, 1)");
+            top: -50px !important;
+        }
+        #line-m {
+            @include animation("line_m_close .8s cubic-bezier(1, 0, 0, 1)");
+            @include rotate(45);
+        }
+        #line-b {
+            @include animation("line_b_close .8s cubic-bezier(1, 0, 0, 1)");
+            @include rotate(-45);
+            top: 10px !important;
+        }
+        .menu {
+            @include animation("menu_open .8s cubic-bezier(1, 0, 0, 1)");
+            right: 0;
+        }
+    }
+
+    &.open {
+        #line-t {
+            @include animation("line_t_open .8s cubic-bezier(1, 0, 0, 1)");
+        }
+        #line-m {
+            @include animation("line_m_open .8s cubic-bezier(1, 0, 0, 1)");
+        }
+        #line-b {
+            @include animation("line_b_open .8s cubic-bezier(1, 0, 0, 1)");
+        }
+        .menu {
+            @include animation("menu_close .8s cubic-bezier(1, 0, 0, 1)");
+        }
+    }
+}
+
+.dark-bg header {
+    &.close {
+        #line-t {
+            @include animation("line_t_close_w .8s cubic-bezier(1, 0, 0, 1)");
+        }
+        #line-m {
+            @include animation("line_m_close_w .8s cubic-bezier(1, 0, 0, 1)");
+        }
+        #line-b {
+            @include animation("line_b_close_w .8s cubic-bezier(1, 0, 0, 1)");
+        }
+    }
+
+    &.open {
+        #line-t {
+            @include animation("line_t_open_w .8s cubic-bezier(1, 0, 0, 1)");
+        }
+        #line-m {
+            @include animation("line_m_open_w .8s cubic-bezier(1, 0, 0, 1)");
+        }
+        #line-b {
+            @include animation("line_b_open_w .8s cubic-bezier(1, 0, 0, 1)");
+        }
+    }
+}
+
+@include keyframes(line_t_close) {
+    0% { top: 0; }
+    50% { top: -50px; }
+    100% { top: -50px; }
+}
+
+@include keyframes(line_t_open) {
+    0% { top: -50px; }
+    50% { top: -50px; }
+    100% { top: 0; }
+}
+
+@include keyframes(line_m_close) {
+    0% { @include rotate(0); }
+    50% { @include rotate(0); }
+    100% { @include rotate(45); }
+}
+
+@include keyframes(line_m_open) {
+    0% { @include rotate(45); }
+    50% { @include rotate(0); }
+    100% { @include rotate(0); }
+}
+
+@include keyframes(line_b_close) {
+    0% { top: 20px; @include rotate(0); }
+    50% { top: 10px; @include rotate(0); }
+    100% { top: 10px; @include rotate(-45); }
+}
+
+@include keyframes(line_b_open) {
+    0% { top: 10px; @include rotate(-45); }
+    50% { top: 10px; @include rotate(0); }
+    100% { top: 20px; @include rotate(0); }
+}
+
+@include keyframes(line_t_close_w) {
+    0% { top: 0; fill: #fff; }
+    50% { top: -50px; }
+    100% { top: -50px; fill: #222; }
+}
+
+@include keyframes(line_t_open_w) {
+    0% { top: -50px; fill: #222; }
+    50% { top: -50px; }
+    100% { top: 0; fill: #fff; }
+}
+
+@include keyframes(line_m_close_w) {
+    0% { @include rotate(0); fill: #fff; }
+    50% { @include rotate(0); }
+    100% { @include rotate(45); fill: #222; }
+}
+
+@include keyframes(line_m_open_w) {
+    0% { @include rotate(45); fill: #222; }
+    50% { @include rotate(0); }
+    100% { @include rotate(0); fill: #fff; }
+}
+
+@include keyframes(line_b_close_w) {
+    0% { top: 20px; @include rotate(0); fill: #fff; }
+    50% { top: 10px; @include rotate(0); }
+    100% { top: 10px; @include rotate(-45); fill: #222; }
+}
+
+@include keyframes(line_b_open_w) {
+    0% { top: 10px; @include rotate(-45); fill: #222; }
+    50% { top: 10px; @include rotate(0); }
+    100% { top: 20px; @include rotate(0); fill: #fff; }
+}
+
+@include keyframes(menu_close) {
+    0% { right: 0; }
+    100% { right: -50%; }
+}
+
+@include keyframes(menu_open) {
+    0% { right: -50%; }
+    100% { right: 0; }
+}

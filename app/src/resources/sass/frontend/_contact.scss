@@ -1,0 +1,43 @@
+#contact {
+    color: #fff;
+    margin-top: 150px;
+
+    .contact-wrapper {
+        background: no-repeat center center;
+        background-size: 100%;
+        padding: 0 100px 100px;
+    }
+    
+
+    .section-title-bg {
+        margin-bottom: 0;
+    }
+    .section-title-sm {
+        padding-top: 0;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 2em;
+        letter-spacing: .2em;
+        margin: 0;
+    }
+
+    .contact-text {
+        position: relative;
+    }
+}
+
+#sns {
+    text-align: center;
+    margin: 100px auto 50px;
+
+    .sns-title {
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+
+    .sns-icons img {
+        margin-right: 15px;
+    }
+}

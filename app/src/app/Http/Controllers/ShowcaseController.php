@@ -3,83 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Showcase;
-use Illuminate\Http\Request;
+
 
 class ShowcaseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $showcases = Showcase::query()->visible()->get();
+
+        return view('showcases', compact('showcases'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show($slug)
     {
-        //
-    }
+        $showcase = Showcase::query()->visible()->where('slug', $slug)->first();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if (!$showcase) {
+            return redirect('/');
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Showcase  $showcase
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Showcase $showcase)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Showcase  $showcase
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Showcase $showcase)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Showcase  $showcase
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Showcase $showcase)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Showcase  $showcase
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Showcase $showcase)
-    {
-        //
+        return view('showcase', compact('showcase'));
     }
 }

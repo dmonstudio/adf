@@ -12,13 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('frontend.home');
+    return view('home');
 });
 
 Route::get('/ping', function() {
     return 'pong';
 });
 
-$this->get('login', 'Auth\LoginController@showLoginForm');
-$this->post('login', 'Auth\LoginController@login');
-$this->post('logout', 'Auth\LoginController@logout');
+Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
+
+Route::get('/about', 'PageController@about');
+Route::get('/jobs', 'PageController@jobs');
+Route::get('/contact', 'PageController@contact');
+Route::get('/showcases', 'ShowcaseController@index');
+Route::get('/showcases/{slug}', 'ShowcaseController@show');
+Route::get('/stories', 'StoryController@index');
+Route::get('/stories/{slug}', 'StoryController@show');
