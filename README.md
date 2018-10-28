@@ -28,16 +28,16 @@ npm run watch
 
 # Troubleshoot
 
-### Are the containers running?
+*Are the containers running?*
 
 `docker-compose ps` to find out
 
-### Need to blow up the database?
+*Need to blow up the database?*
 
 ```bash
 docker-compose exec app sh
 php artisan migrate:refresh --seed
 ```
 
-### Made a change to the config files?
+*Made a change to the config files?*
 `docker-compose restart app` should pick it up
