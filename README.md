@@ -13,6 +13,8 @@ docker-compose up -d
 docker-compose exec app sh
 ```
 
+At this point, the app server should be running at http://localhost:3000
+
 Then run migrations and seeders inside the container
 
 ```bash
