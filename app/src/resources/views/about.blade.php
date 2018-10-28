@@ -8,7 +8,7 @@
         </div>
     </section>
     <section class="st" id="office-photo" data-aos="fade-in" data-aos-offset="-300" data-aos-once="true">
-        <div class="office-photo-wrapper" style="background-image: url('static/images/photos/banner-adf-office.jpg');"></div>
+        <div class="office-photo-wrapper" style="background-image: url({{ url('images/banner-adf-office.jpg') }});"></div>
         <p class="pingFang-thin">後象設計師事務所 辦公室 | The office of All Symbol Designers Firm</p>
     </section>
     <section class="st" id="intro">
@@ -55,7 +55,7 @@
                         MARTIN国际室内设计大奖<br>金指环iC@ward全球室内设计大赛金奖<br>德国iF2009中国设计大奖<br>APIDA第十七届亚太室内设计大奖银奖</p>
                 </div>
             </div>
-            <div class="global-awards-img" data-aos="fade-left" data-aos-offset="-50"><img src="static/images/photos/awards.jpg"></div>
+            <div class="global-awards-img" data-aos="fade-left" data-aos-offset="-50"><img src={{ url("images/awards.jpg") }}></div>
             <div class="domestic-awards" data-aos="fade-in" data-aos-offset="-50">
                 <div class="section-title-sm pingFang">国内奖项 | DOMESTIC AWARDS</div>
                 <div class="award-list">
