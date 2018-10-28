@@ -10,8 +10,7 @@ else
     echo "env file already exists"
 fi
 
-echo "Refreshing composer autoload"
-composer dumpautoload
+composer install
 
 echo "Ensuring file permissions"
 chown -R www-data:www-data storage/logs
