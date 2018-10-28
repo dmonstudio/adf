@@ -152,6 +152,7 @@ return [
         /*
          * Package Service Providers...
          */
+        HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
 
         /*
          * Application Service Providers...
