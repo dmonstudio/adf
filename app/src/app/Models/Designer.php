@@ -39,6 +39,11 @@ class Designer extends Model implements HasMedia
         return array_first($this->titles);
     }
 
+    public function getMainTitleEnAttribute()
+    {
+        return array_first($this->titles_en);
+    }
+
     public function getTitlesCountAttribute()
     {
         return count($this->titles);

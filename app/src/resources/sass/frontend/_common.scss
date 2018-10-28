@@ -1,0 +1,179 @@
+html, body {
+    font-family: -apple-system,"Helvetica Neue","Roboto","Arial","PingFang SC","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: #222;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    min-width: 1200px;
+
+    &.st {
+        max-width: 1400px;
+        min-width: 1140px;
+        padding: 0 30px;
+        margin: 0 auto;
+        text-align: left;
+    }
+}
+
+.section-title-bg {
+    font-size: 36px;
+    letter-spacing: .3em;
+    padding-top: 100px;
+    margin-bottom: 50px;
+}
+
+.section-title-md {
+    font-size: 20px;
+    line-height: 3em;
+    letter-spacing: .2em;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.section-title-sm {
+    font-size: 18px;
+    line-height: 3em;
+    letter-spacing: .2em;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    vertical-align: middle;
+
+    .logo, .menu-button {
+        background-color: rgba(255,255,255,.75);
+        margin: 30px;
+    }
+
+    .logo {
+        display: inline-block;
+        height: 35px;
+        border-top: 3px solid transparent;
+        border-left: 3px solid transparent;
+
+        svg {
+            height: 32px;
+
+            &#logo-d { margin-left: -2px; }
+            &#logo-f { margin-left: -9px; }
+        }
+    }
+
+    .menu-button {
+        display: inline-block;
+        position: relative;
+        float: right;
+        z-index: 1;
+        width: 30px;
+        height: 30px;
+        border: 5px solid transparent;
+        border-bottom: none;
+        cursor: pointer;
+
+        svg { 
+            display: block;
+            position: absolute;
+
+            &#line-t {
+                top: 0;
+            }
+            &#line-m {
+                top: 10px;
+            }
+            &#line-b {
+                top: 20px;
+            }
+        }
+    }
+
+    .menu {
+        position: fixed;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        right: -50%;
+        background-color: #fff;
+
+        .menu-list {
+            list-style: none;
+            list-style-type: none;
+            font-size: 20px;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-inline-start: 0;
+
+            .item-wrapper {
+                height: 30px;
+                margin-bottom: 50px;
+                overflow: hidden;
+            }
+
+            .item {
+                display: block;
+                text-align: center;
+                letter-spacing: 0.6em;
+                line-height: 30px;
+                @include transition("margin-top .5s cubic-bezier(1, 0, 0, 1)");
+
+                span.pingFang {
+                    margin-right: 5px;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    margin-top: -31px;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    display: block;
+    padding: 30px 0;
+    min-width: 1200px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+}
+
+body.dark-bg {
+    #line-t, #line-m, #line-b {
+        fill: #fff;
+    }
+
+    .logo, .menu-button {
+        background-color: transparent;
+        border: none;
+    }
+
+    .logo svg {
+        fill: #fff;
+    }
+}
+
+.pingFang-thin {
+    font-family: -apple-system,"Helvetica Neue","PingFang SC","PingFangSC_L1527eb69a3570c","Roboto","Arial","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
+}
+
+.pingFang {
+    font-weight: bold;
+    font-family: -apple-system,"Helvetica Neue","PingFang SC","PingFangSC1527f94945570c","Roboto","Arial","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
+}

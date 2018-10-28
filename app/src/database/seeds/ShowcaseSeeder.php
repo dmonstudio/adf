@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Showcase;
 use Illuminate\Database\Seeder;
 use Spatie\MediaLibrary\Models\Media;
 
@@ -12,9 +13,15 @@ class ShowcaseSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Showcase::query()->truncate();
+        Showcase::query()->truncate();
 
-        $showcases = factory(App\Models\Showcase::class, 10)->create();
+        $showcases = factory(Showcase::class, 8)->create([
+            'visible' => true
+        ]);
+
+        factory(Showcase::class, 2)->create([
+            'visible' => false
+        ]);
 
         Media::where('model_type', 'showcase')->get()->each(function ($showcase) {
             $showcase->delete();

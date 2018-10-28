@@ -15,7 +15,13 @@ class DesignerSeeder extends Seeder
     {
         Designer::query()->truncate();
 
-        $designers = factory(Designer::class, 10)->create();
+        $designers = factory(Designer::class, 8)->create([
+            'visible' => true
+        ]);
+
+        factory(Designer::class, 2)->create([
+            'visible' => false
+        ]);
 
         Media::where('model_type', 'designers')->get()->each(function ($designer) {
             $designer->delete();

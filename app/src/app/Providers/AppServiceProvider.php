@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Story;
 use App\Models\Designer;
 use App\Models\Showcase;
-use App\Models\Story;
-use Illuminate\Database\Eloquent\Relations\Relation;
+use App\Services\BladeMinifier;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -43,6 +45,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->overrideBladeMinifier();
+    }
+
+    private function overrideBladeMinifier()
+    {
+        $this->app->singleton('htmlmin.blade', function (Container $app) {
+            $force = $app->config->get('htmlmin.force', false);
+
+            return new BladeMinifier($force);
+        });
+
+        $this->app->alias('htmlmin.blade', BladeMinifier::class);
     }
 }

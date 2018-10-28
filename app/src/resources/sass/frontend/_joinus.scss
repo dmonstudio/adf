@@ -1,0 +1,34 @@
+#joinus {
+    margin-top: 100px;
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+        line-height: 1.5em;
+
+        &.en {
+            letter-spacing: .1em;
+            color: #9e9e9e;
+        }
+    }
+
+    .joinus-wrapper {
+        padding: 50px 200px 100px;
+    }
+
+    .section-title-md {
+        margin-bottom: 0;
+    }
+
+    .section-title-sm {
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .jd-text {
+        span {
+            position: absolute;
+            margin-left: -20px;
+        }
+    }
+}
