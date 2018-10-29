@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
             'designer' => 'App\Models\Designer',
             'project' => 'App\Models\Project',
             'story' => 'App\Models\Story',
+            'page' => 'App\Models\Page'
         ]);
     }
 

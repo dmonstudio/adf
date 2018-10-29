@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Route::get('/ping', function() {
     return 'pong';
 });
@@ -23,6 +19,7 @@ Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 
+Route::get('/', 'PageController@home');
 Route::get('/about', 'PageController@about');
 Route::get('/jobs', 'PageController@jobs');
 Route::get('/contact', 'PageController@contact');
