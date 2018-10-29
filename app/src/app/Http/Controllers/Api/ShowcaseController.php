@@ -48,13 +48,6 @@ class ShowcaseController extends Controller
 
     public function addMedia(Request $request, Showcase $showcase)
     {
-        $file = $request->file('media');
-        $path = $file->getPathname();
-
-        $media = $showcase->addMedia($path)
-                ->usingFileName($file->getFilename())
-                ->toMediaCollection();
-        
-        return $media->id;
+        return $this->handleAddMedia($request, $showcase);
     }
 }

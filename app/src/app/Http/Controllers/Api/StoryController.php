@@ -48,13 +48,6 @@ class StoryController extends Controller
 
     public function addMedia(Request $request, Story $story)
     {
-        $file = $request->file('media');
-        $path = $file->getPathname();
-
-        $media = $story->addMedia($path)
-                ->usingFileName($file->getFilename())
-                ->toMediaCollection();
-        
-        return $media->id;
+        return $this->handleAddMedia($request, $story);
     }
 }

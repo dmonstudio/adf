@@ -48,13 +48,6 @@ class DesignerController extends Controller
 
     public function addMedia(Request $request, Designer $designer)
     {
-        $file = $request->file('media');
-        $path = $file->getPathname();
-
-        $media = $designer->addMedia($path)
-                ->usingFileName($file->getFilename())
-                ->toMediaCollection();
-        
-        return $media->id;
+        return $this->handleAddMedia($request, $designer);
     }
 }

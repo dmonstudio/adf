@@ -11,11 +11,7 @@ class PageController extends Controller
 {
     public function home()
     {
-        $page = Page::query()->where('key', 'home')->first();
-
-        if (!$page) {
-            throw new ModelNotFoundException('The page [home] doesn\'t exist');
-        }
+        $page = Page::query()->where('key', 'home')->firstOrFail();
 
         $slides = $page->getMedia('slides');
         $settings = $page->settings;
@@ -37,6 +33,11 @@ class PageController extends Controller
 
     public function contact()
     {
-        # code...
+        $page = Page::query()->where('key', 'contact')->firstOrFail();
+
+        $background = $page->getFirstMedia('background');
+        $settings = $page->settings;
+
+        return view('contact', compact('background', 'settings'));
     }
 }
