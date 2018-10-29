@@ -9,11 +9,11 @@
 
 <body>
     <header>
-        @include('partial.logo')
+        @include('layout.logo')
         
-        @include('partial.menu')
+        @include('layout.menu')
 
-        @include('partial.menu-icon')
+        @include('layout.menu-icon')
     </header>
 
     @yield('content')
