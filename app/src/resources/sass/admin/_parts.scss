@@ -1,4 +1,11 @@
 .toolbar {
     background: #eee;
     margin-bottom: 2rem;
+
+    h3 {
+        display: inline-block;
+        margin: .5rem auto;
+        font-weight: normal;
+        letter-spacing: .06em;
+    }
 }

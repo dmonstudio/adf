@@ -9,6 +9,7 @@ import ShowcaseIndex from './components/Showcase/IndexPage'
 import ShowcaseEdit from './components/Showcase/EditPage'
 import StoryIndex from './components/Story/IndexPage'
 import StoryEdit from './components/Story/EditPage'
+import HomePageEdit from './components/Pages/HomePageEdit'
 
 const routes = [
     { path: '/', component: Home },
@@ -17,7 +18,8 @@ const routes = [
     { path: '/showcases', component: ShowcaseIndex },
     { path: '/showcases/:id/edit', component: ShowcaseEdit },
     { path: '/stories', component: StoryIndex },
-    { path: '/stories/:id/edit', component: StoryEdit }
+    { path: '/stories/:id/edit', component: StoryEdit },
+    { path: '/pages/:home/edit', component: HomePageEdit },
 ]
 
 const router = new Router({

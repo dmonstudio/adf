@@ -16,4 +16,8 @@ class Page extends Model implements HasMedia
     protected $casts = [
         'settings' => 'array'
     ];
+
+    protected $with = [
+        'media'
+    ];
 }

@@ -24,4 +24,9 @@ Route::post('stories/{story}/media', 'StoryController@addMedia');
 
 Route::delete('/media/{media}', 'MediaController@destroy');
 
+Route::get('/pages/home', 'HomePageController@find');
+Route::put('/pages/home', 'HomePageController@update');
+
+Route::post('/pages/{page}/media', 'PageController@addMedia');
+
 Route::get('/stats/resources', 'StatsController@resources');

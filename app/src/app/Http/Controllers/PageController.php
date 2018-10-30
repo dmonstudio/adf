@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function home()
     {
-        $page = Page::query()->where('key', 'home')->firstOrFail();
+        $page = Page::query()->whereType('home')->firstOrFail();
 
         $slides = $page->getMedia('slides');
         $settings = $page->settings;
@@ -33,7 +33,7 @@ class PageController extends Controller
 
     public function contact()
     {
-        $page = Page::query()->where('key', 'contact')->firstOrFail();
+        $page = Page::query()->whereType('contact')->firstOrFail();
 
         $background = $page->getFirstMedia('background');
         $settings = $page->settings;

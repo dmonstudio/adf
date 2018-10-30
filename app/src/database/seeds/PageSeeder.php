@@ -24,7 +24,7 @@ class PageSeeder extends Seeder
     private function seedHomePage()
     {
         $images = glob(resource_path('images/pages/home/*.jpg'));
-        $page = Page::query()->where('key', 'home')->first();
+        $page = Page::query()->where('type', 'home')->first();
         
         foreach($images as $image) {
             $page->addMedia($image)
@@ -44,7 +44,7 @@ class PageSeeder extends Seeder
     private function seedContactPage()
     {
         $images = glob(resource_path('images/pages/contact/*.jpg'));
-        $page = Page::query()->where('key', 'contact')->first();
+        $page = Page::query()->where('type', 'contact')->first();
 
         foreach($images as $image) {
             $page->addMedia($image)

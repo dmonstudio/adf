@@ -13,14 +13,14 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function handleAddMedia(Request $request, HasMedia $hasMedia)
+    protected function handleAddMedia(Request $request, HasMedia $hasMedia, $collection = null)
     {
         $file = $request->file('media');
         $path = $file->getPathname();
 
         $media = $hasMedia->addMedia($path)
                 ->usingFileName('default.' . $file->getClientOriginalExtension())
-                ->toMediaCollection();
+                ->toMediaCollection($collection);
         
         return $media->id;
     }
