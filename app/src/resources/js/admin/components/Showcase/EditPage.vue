@@ -16,7 +16,7 @@
                     resource-name="showcase"
                     size="small"
                     plain
-                    :handle-action-complete="handleDeleted"
+                    :on-action-complete="handleDeleted"
                 />
             </template>
         </toolbar>
@@ -30,6 +30,7 @@
                         :resource="showcase"
                         resource-name="showcase"
                         v-if="showcase.media"
+                        :on-reorder="fetch"
                     />
                 </el-card>
             </el-col>

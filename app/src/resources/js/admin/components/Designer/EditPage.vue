@@ -16,7 +16,7 @@
                     resource-name="designer"
                     size="small"
                     plain
-                    :handle-action-complete="handleDeleted"
+                    :on-action-complete="handleDeleted"
                 />
             </template>
         </toolbar>
@@ -29,6 +29,7 @@
                     <resource-upload
                         :resource="designer"
                         resource-name="designer"
+                        :on-reorder="fetch"
                         v-if="designer.media"
                     />
                 </el-card>

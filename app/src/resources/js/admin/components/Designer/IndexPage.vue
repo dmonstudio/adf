@@ -4,7 +4,7 @@
             <resource-create
                 resource-name="designer"
                 button-type="primary"
-                :handle-action-complete="handleCreated"
+                :on-action-complete="handleCreated"
             />
         </toolbar>
         <resource-table

@@ -16,7 +16,7 @@
                     resource-name="story"
                     size="small"
                     plain
-                    :handle-action-complete="handleDeleted"
+                    :on-action-complete="handleDeleted"
                 />
             </template>
         </toolbar>
@@ -30,6 +30,7 @@
                         :resource="story"
                         resource-name="story"
                         v-if="story.media"
+                        :on-reorder="fetch"
                     />
                 </el-card>
             </el-col>

@@ -57,3 +57,16 @@
 .text-muted {
     opacity: 0.5;
 }
+
+@mixin grayscle-helper($level) {
+    .grayscale-#{$level} {
+        filter: #{"grayscale(#{$level})"};
+
+        img {
+            filter: #{"grayscale(#{$level})"};
+        }
+    }
+}
+
+@include grayscle-helper(20);
+@include grayscle-helper(50);

@@ -23,6 +23,7 @@ api_resource('story', 'StoryController');
 Route::post('stories/{story}/media', 'StoryController@addMedia');
 
 Route::delete('/media/{media}', 'MediaController@destroy');
+Route::post('/media/reorder', 'MediaController@reorder');
 
 Route::get('/pages/home', 'HomePageController@find');
 Route::put('/pages/home', 'HomePageController@update');

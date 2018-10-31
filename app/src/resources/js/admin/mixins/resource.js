@@ -18,7 +18,10 @@ export default {
         actionUrl: {
             type: Function
         },
-        handleActionComplete: {
+        onActionComplete: {
+            type: Function
+        },
+        onReorder: {
             type: Function
         }
     },

@@ -11,6 +11,7 @@
                 :resource="page"
                 resource-name="page"
                 v-if="page"
+                :on-reorder="fetch"
                 media-collection="slides"
             />
         </el-card>
