@@ -2,6 +2,7 @@ FROM node:alpine AS static
 
 WORKDIR /build
 
+RUN apk add --no-cache python2
 RUN mkdir /build/public
 
 COPY src/package.json /build/
