@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Designer;
 use App\Models\Page;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Models\Job;
 
 
 class PageController extends Controller
 {
     public function home()
     {
-        $page = Page::query()->whereType('home')->firstOrFail();
+        $page = Page::findByType('home');
 
         $slides = $page->getMedia('slides');
         $settings = $page->settings;
@@ -21,14 +22,22 @@ class PageController extends Controller
 
     public function about()
     {
-        $designers = Designer::query()->visible()->get();
+        $page = Page::findByType('about');
 
-        return view('about', compact('designers'));
+        $designers = Designer::query()->visible()->get();
+        $settings = $page->settings;
+
+        return view('about', compact('settings', 'designers'));
     }
 
-    public function jobs()
+    public function career()
     {
+        $page = Page::findByType('career');
 
+        $jobs = Job::query()->visible()->get();
+        $settings = $page->settings;
+
+        return view('career', compact('settings', 'jobs'));
     }
 
     public function contact()

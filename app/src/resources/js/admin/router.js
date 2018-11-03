@@ -19,7 +19,7 @@ const routes = [
     { path: '/showcases/:id/edit', component: ShowcaseEdit },
     { path: '/stories', component: StoryIndex },
     { path: '/stories/:id/edit', component: StoryEdit },
-    { path: '/pages/:home/edit', component: HomePageEdit },
+    { path: '/pages/home/edit', component: HomePageEdit },
 ]
 
 const router = new Router({

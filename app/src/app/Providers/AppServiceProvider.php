@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Parsedown;
 use App\Models\Story;
 use App\Models\Designer;
 use App\Models\Showcase;
@@ -19,6 +20,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->setupEloquentEvents();
+
+        $this->setupMorphKeys();
+    }
+
+    private function setupEloquentEvents()
+    {
         Designer::creating(function (Designer $designer) {
             $designer->slug = uniqid();
         });
@@ -30,7 +38,10 @@ class AppServiceProvider extends ServiceProvider
         Story::creating(function (Story $story) {
             $story->slug = uniqid();
         });
+    }
 
+    private function setupMorphKeys()
+    {
         Relation::morphMap([
             'designer' => 'App\Models\Designer',
             'project' => 'App\Models\Project',
@@ -47,6 +58,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->overrideBladeMinifier();
+
+        $this->setupMarkdownService();
     }
 
     private function overrideBladeMinifier()
@@ -58,5 +71,12 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('htmlmin.blade', BladeMinifier::class);
+    }
+
+    private function setupMarkdownService()
+    {
+        $this->app->singleton('markdown', function (Container $app) {
+            return new Parsedown();
+        });
     }
 }

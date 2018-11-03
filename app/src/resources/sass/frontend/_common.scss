@@ -1,3 +1,6 @@
+$pingfang: -apple-system,"Helvetica Neue","PingFang SC","PingFangSC1527f94945570c","Roboto","Arial","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
+$pingfang-thin: -apple-system,"Helvetica Neue","PingFang SC","PingFangSC_L1527eb69a3570c","Roboto","Arial","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
+
 html, body {
     font-family: -apple-system,"Helvetica Neue","Roboto","Arial","PingFang SC","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
     font-weight: 300;
@@ -170,10 +173,10 @@ body.dark-bg {
 }
 
 .pingFang-thin {
-    font-family: -apple-system,"Helvetica Neue","PingFang SC","PingFangSC_L1527eb69a3570c","Roboto","Arial","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
+    font-family: $pingfang-thin;
 }
 
 .pingFang {
     font-weight: bold;
-    font-family: -apple-system,"Helvetica Neue","PingFang SC","PingFangSC1527f94945570c","Roboto","Arial","Microsoft YaHei","ST Heiti","SimHei",sans-serif;
+    font-family: $pingfang;
 }

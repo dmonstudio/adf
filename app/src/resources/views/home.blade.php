@@ -21,7 +21,7 @@
     </div>
     <div class="footer pingFang-thin">
         <div class="intro">
-            {{ array_get($settings, 'dialog.zh') }}
+            {{ $settings->get('dialog.zh') }}
         </div>
         <div class="credits">版权所有 ©AllSymbolDesignFirm | 京ICP备23016250号</div>
     </div>

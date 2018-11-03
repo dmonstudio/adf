@@ -3,6 +3,8 @@
 </template>
 
 <script>
+    import ResourceUpload from '../Resource/Upload.vue'
+
     export default {
         
     }

@@ -21,7 +21,7 @@ Route::post('logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'PageController@home');
 Route::get('/about', 'PageController@about');
-Route::get('/jobs', 'PageController@jobs');
+Route::get('/career', 'PageController@career');
 Route::get('/contact', 'PageController@contact');
 Route::get('/showcases', 'ShowcaseController@index');
 Route::get('/showcases/{slug}', 'ShowcaseController@show');

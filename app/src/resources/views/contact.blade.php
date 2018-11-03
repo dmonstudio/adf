@@ -9,13 +9,13 @@
             <p class="pingFang">后象设计师事务所</p>
             <p class="pingFang-thin">
                 <br>
-                {{ array_get($settings, 'address.zh') }}
+                {{ $settings->get('address.zh') }}
                 <br>
                 <br>
-                <span class="pingFang">TEL: </span>{{ array_get($settings, 'phone') }}
-                <br><span class="pingFang">FAX: </span>{{ array_get($settings, 'fax') }}
+                <span class="pingFang">TEL: </span>{{ $settings->get('phone') }}
+                <br><span class="pingFang">FAX: </span>{{ $settings->get('fax') }}
                 <br><br><span class="pingFang">EMAIL:
-                </span><span style="text-decoration: underline;">{{ array_get($settings, 'email') }}</span></p>
+                </span><span style="text-decoration: underline;">{{ $settings->get('email') }}</span></p>
         </div>
     </div>
 </section>

@@ -20,4 +20,23 @@ class Page extends Model implements HasMedia
     protected $with = [
         'media'
     ];
+
+    public static function findByType(string $type)
+    {
+        return self::query()->whereType($type)->firstOrFail();
+    }
+
+    public function removeMedia()
+    {
+        $this->media->each(function($media) {
+            $media->delete();
+        });
+    }
+
+    public function getSettingsAttribute($settings)
+    {
+        $settings = json_decode($settings, true);
+        
+        return new PageSettings($settings);
+    }
 }

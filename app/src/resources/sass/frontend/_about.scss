@@ -116,7 +116,7 @@
     .award-list {
         margin-bottom: 50px;
 
-        p {
+        td {
             font-size: 18px;
             line-height: 3em;
             letter-spacing: .2em;
@@ -125,6 +125,7 @@
             &.award-list-left {
                 width: 150px;
                 float: left;
+                vertical-align: top;
             }
 
             &.award-list-right {
