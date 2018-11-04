@@ -50,4 +50,9 @@ class ShowcaseController extends Controller
     {
         return $this->handleAddMedia($request, $showcase);
     }
+
+    public function getCategories()
+    {
+        return Showcase::CATEGORIES;
+    }
 }

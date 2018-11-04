@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class PageSettings
+use JsonSerializable;
+
+class PageSettings implements JsonSerializable
 {
     private $data;
 
@@ -14,5 +16,10 @@ class PageSettings
     public function get($key, $default = null)
     {
         return array_get($this->data, $key, $default);
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->data;
     }
 }

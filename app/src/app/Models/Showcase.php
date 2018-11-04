@@ -10,6 +10,12 @@ class Showcase extends Model implements HasMedia
 {
     use HasMediaTrait, HasVisibilityTrait, HasMainImageTrait;
 
+    const CATEGORIES = [
+        'workspace' => '办公空间',
+        'dinetertainment' => '餐饮娱乐',
+        'realestate' => '地产'
+    ];
+
     protected $fillable = [
         'name', 'name_en',
         'slug',

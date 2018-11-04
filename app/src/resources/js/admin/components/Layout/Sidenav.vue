@@ -13,7 +13,7 @@
             <i class="el-icon-menu"></i>
             <span>控制台</span>
         </el-menu-item>
-        <el-submenu index="1">
+        <el-submenu index="/pages/">
             <template slot="title">
                 <i class="el-icon-tickets"></i>
                 <span slot="title">页面管理</span>

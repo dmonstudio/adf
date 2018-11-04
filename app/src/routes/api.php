@@ -18,6 +18,7 @@ Route::post('designers/{designer}/media', 'DesignerController@addMedia');
 
 api_resource('showcase', 'ShowcaseController');
 Route::post('showcases/{showcase}/media', 'ShowcaseController@addMedia');
+Route::get('showcase-categories', 'ShowcaseController@getCategories');
 
 api_resource('story', 'StoryController');
 Route::post('stories/{story}/media', 'StoryController@addMedia');

@@ -1,8 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Models\Showcase;
 
-$factory->define(App\Models\Showcase::class, function (Faker $faker) {
+$factory->define(Showcase::class, function (Faker $faker) {
     static $names = [
         '大项目一号',
         '大项目二号',
@@ -20,6 +21,7 @@ $factory->define(App\Models\Showcase::class, function (Faker $faker) {
         'slug' => $faker->slug,
         'body' => $faker->text,
         'body_en' => $faker->realText(),
+        'category' => $faker->randomElement(array_keys(Showcase::CATEGORIES)),
         'visible' => $faker->boolean
     ];
 });

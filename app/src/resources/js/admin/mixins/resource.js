@@ -34,6 +34,9 @@ export default {
         },
         nameTitle() {
             return t(this.resourceName + '.' + this.nameProp)
+        },
+        baseUrl() {
+            return document.location.origin
         }
     },
     methods: {
