@@ -1,48 +1,46 @@
-header.close {
+.menu-open {
     #line-t, #line-m, #line-b {
         fill: #222;
     }
 }
 
-header {
-    &.close {
-        #line-t {
-            @include animation("line_t_close .8s cubic-bezier(1, 0, 0, 1)");
-            top: -50px !important;
-        }
-        #line-m {
-            @include animation("line_m_close .8s cubic-bezier(1, 0, 0, 1)");
-            @include rotate(45);
-        }
-        #line-b {
-            @include animation("line_b_close .8s cubic-bezier(1, 0, 0, 1)");
-            @include rotate(-45);
-            top: 10px !important;
-        }
-        .menu {
-            @include animation("menu_open .8s cubic-bezier(1, 0, 0, 1)");
-            right: 0;
-        }
+.menu-open {
+    #line-t {
+        @include animation("line_t_close .8s cubic-bezier(1, 0, 0, 1)");
+        top: -50px !important;
     }
+    #line-m {
+        @include animation("line_m_close .8s cubic-bezier(1, 0, 0, 1)");
+        @include rotate(45);
+    }
+    #line-b {
+        @include animation("line_b_close .8s cubic-bezier(1, 0, 0, 1)");
+        @include rotate(-45);
+        top: 10px !important;
+    }
+    .menu {
+        @include animation("menu_open .8s cubic-bezier(1, 0, 0, 1)");
+        right: 0;
+    }
+}
 
-    &.open {
-        #line-t {
-            @include animation("line_t_open .8s cubic-bezier(1, 0, 0, 1)");
-        }
-        #line-m {
-            @include animation("line_m_open .8s cubic-bezier(1, 0, 0, 1)");
-        }
-        #line-b {
-            @include animation("line_b_open .8s cubic-bezier(1, 0, 0, 1)");
-        }
-        .menu {
-            @include animation("menu_close .8s cubic-bezier(1, 0, 0, 1)");
-        }
+.menu-hidden {
+    #line-t {
+        @include animation("line_t_open .8s cubic-bezier(1, 0, 0, 1)");
+    }
+    #line-m {
+        @include animation("line_m_open .8s cubic-bezier(1, 0, 0, 1)");
+    }
+    #line-b {
+        @include animation("line_b_open .8s cubic-bezier(1, 0, 0, 1)");
+    }
+    .menu {
+        @include animation("menu_close .8s cubic-bezier(1, 0, 0, 1)");
     }
 }
 
 .dark-bg header {
-    &.close {
+    .menu-open {
         #line-t {
             @include animation("line_t_close_w .8s cubic-bezier(1, 0, 0, 1)");
         }
@@ -54,7 +52,7 @@ header {
         }
     }
 
-    &.open {
+    .menu-hidden {
         #line-t {
             @include animation("line_t_open_w .8s cubic-bezier(1, 0, 0, 1)");
         }

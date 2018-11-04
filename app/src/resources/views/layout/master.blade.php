@@ -7,7 +7,7 @@
     @stack('css')
 </head>
 
-<body>
+<body class="menu-hidden">
     <header>
         @include('layout.logo')
         
@@ -19,22 +19,21 @@
     @yield('content')
 
     <footer class="pingFang-thin">版权所有 ©AllSymbolDesignFirm | 京ICP备16016659号</footer>
+    <div id="overlay"></div>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.js"></script>
 
     <script>
+        function toggleMenu() {
+            $('body').toggleClass('menu-hidden menu-open');
+            $('#overlay').toggle();
+        }
+
         $(document).ready(function () {
-            $('.menu-button').on('click', function (e) {
-                var $header = $(this).parent('header');
+            $('#overlay').on('click', toggleMenu);
 
-                if ($header.hasClass('close') || $header.hasClass('open')) {
-                    $header.toggleClass('close open');
-                    return;
-                }
-
-                $header.toggleClass('close');
-            });
+            $('.menu-button').on('click', toggleMenu);
         });
     </script>
     @stack('js')
