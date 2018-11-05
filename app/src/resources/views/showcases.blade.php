@@ -9,7 +9,9 @@
                 type="radio" name="all" value="0">地产 Real Estate</label></div>
     <div class="projects-wrapper" data-grid>
         @foreach($showcases as $showcase)
-        <div class="project"><img src={{ $showcase->main_image }}><a class="project-mask" href="project01.html">
+        <div class="project" data-category="{{ $showcase->category }}">
+            <img src={{ $showcase->main_image }}>
+            <a class="project-mask" href="project01.html">
                 <div class="project-text">
                     <p class="pingFang">{{ $showcase->name }}</p>
                     <p class="pingFang-thin">{{ $showcase->name_en }}</p>
