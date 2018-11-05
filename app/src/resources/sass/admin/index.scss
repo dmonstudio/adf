@@ -37,3 +37,7 @@ body {
 #footer {
   background: lighten($--color-primary, 40%);
 }
+
+.el-input-group__append, .el-input-group__prepend {
+  color: #888;
+}

@@ -10,6 +10,7 @@ import ShowcaseEdit from './components/Showcase/EditPage'
 import StoryIndex from './components/Story/IndexPage'
 import StoryEdit from './components/Story/EditPage'
 import HomePageEdit from './components/Pages/HomePageEdit'
+import AboutPageEdit from './components/Pages/AboutPageEdit'
 
 const routes = [
     { path: '/', component: Home },
@@ -20,6 +21,7 @@ const routes = [
     { path: '/stories', component: StoryIndex },
     { path: '/stories/:id/edit', component: StoryEdit },
     { path: '/pages/home/edit', component: HomePageEdit },
+    { path: '/pages/about/edit', component: AboutPageEdit },
 ]
 
 const router = new Router({

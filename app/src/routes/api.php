@@ -28,6 +28,8 @@ Route::post('/media/reorder', 'MediaController@reorder');
 
 Route::get('/pages/home', 'HomePageController@find');
 Route::put('/pages/home', 'HomePageController@update');
+Route::get('/pages/about', 'AboutPageController@find');
+Route::put('/pages/about', 'AboutPageController@update');
 
 Route::post('/pages/{page}/media', 'PageController@addMedia');
 
