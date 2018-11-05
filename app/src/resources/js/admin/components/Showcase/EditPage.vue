@@ -20,8 +20,20 @@
                 />
             </template>
         </toolbar>
-        <el-row class="mb-4">
-            <el-col>
+        <el-row :gutter="40">
+            <el-col :span="12">
+                <el-card class="box-card mb-4">
+                    <div slot="header" class="clearfix">
+                        <span>系统设置</span>
+                    </div>
+                    <showcase-meta
+                        :resource="showcase"
+                        resource-name="showcase"
+                        :fetching="fetching"
+                        :updating="updating"
+                        :onSubmit="update"
+                    />
+                </el-card>
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>图片</span>
@@ -34,22 +46,8 @@
                     />
                 </el-card>
             </el-col>
-        </el-row>
-        <el-card class="box-card mb-4">
-            <div slot="header" class="clearfix">
-                <span>系统设置</span>
-            </div>
-            <showcase-meta
-                :resource="showcase"
-                resource-name="showcase"
-                :fetching="fetching"
-                :updating="updating"
-                :onSubmit="update"
-            />
-        </el-card>
-        <el-row :gutter="40">
             <el-col :lg="12">
-                <el-card class="box-card">
+                <el-card class="box-card mb-4">
                     <div slot="header" class="clearfix">
                         <span>基本信息</span>
                     </div>
@@ -61,8 +59,6 @@
                         :onSubmit="update"
                     />
                 </el-card>
-            </el-col>
-            <el-col :lg="12">
                 <el-card class="box-card">
                     <div slot="header" class="clearfix">
                         <span>Basic Info</span>

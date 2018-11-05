@@ -5,34 +5,25 @@
         label-width="120px"
         :disabled="loading"
     >
-        <el-row :gutter="8">
-            <el-col :span="12">
-                <el-form-item label="链接" prop="slug">
-                    <el-input v-model="form.slug">
-                        <template slot="prepend">{{ baseUrl }}/showcases/</template>
-                    </el-input>
-                </el-form-item>
-            </el-col>
-            <el-col :span="12">
-                <el-form-item label="分类" prop="category">
-                    <el-select v-model="form.category" placeholder="选择分类" class="w-100">
-                        <el-option
-                            v-for="item in categories"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                        />
-                    </el-select>
-                </el-form-item>
-            </el-col>
-        </el-row>
-        <br>
-        <div class="text-center">
-            <el-form-item>
-                <el-button type="primary" :loading="updating" @click="submit">保存</el-button>
-                <el-button @click="reset">取消</el-button>
-            </el-form-item>
-        </div>
+        <el-form-item label="链接" prop="slug">
+            <el-input v-model="form.slug">
+                <template slot="prepend">{{ baseUrl }}/showcases/</template>
+            </el-input>
+        </el-form-item>
+        <el-form-item label="分类" prop="category">
+            <el-select v-model="form.category" placeholder="选择分类" class="w-100">
+                <el-option
+                    v-for="item in categories"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                />
+            </el-select>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" :loading="updating" @click="submit">保存</el-button>
+            <el-button @click="reset">取消</el-button>
+        </el-form-item>
     </el-form>
 </template>
 

@@ -14,7 +14,7 @@
         <el-button slot="trigger" size="small" type="primary">点此上传</el-button>
         <div slot="tip" class="el-upload__tip">
             不超过2M的jpg/png文件。最多上传{{ limit }}张。
-            <el-button size="small" type="info" @click="reorder = true">
+            <el-button size="small" type="info" @click="reorder = true" plain>
                 <i class="el-icon-sort"></i>
                 调整顺序
             </el-button>
